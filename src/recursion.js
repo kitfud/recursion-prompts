@@ -7,6 +7,22 @@
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
 var factorial = function(n) {
+      // If the number is negative, it doesn't have a factorial. Return an
+  // impossible value to indicate this.
+  if (n < 0) {
+    return null;
+  }
+
+  // If the number is zero, its factorial is one.
+  if (n === 0) {
+    return 1;
+  }
+
+  // If the number is neither illegal nor zero, call factorial again,
+  // this time passing in a smaller number. Eventually we'll reach 0,
+  // causing each call to return to its caller and the recursion terminates.
+  return (n * factorial(n - 1));
+    
 };
 
 // 2. Compute the sum of an array of integers.

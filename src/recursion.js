@@ -44,10 +44,38 @@ else{
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+
+	var length = array.length;
+	var sum =0;
+
+	for( var i = 0; i < length; i++ ) {
+		
+		if ( Array.isArray( array[i] ) === true ) {
+		
+			sum += arraySum( array[i] );
+		}
+		else{
+		  sum += array[i]
+		}
+		
+	}
+
+	return sum;
+
+
+
 };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  var abs = Math.abs(n)
+    if(abs===0){
+        return(true);
+    }else if (abs === 1){
+        return(false);
+    }else {
+        return(isEven(abs - 2));
+    }
 };
 
 // 5. Sum all integers below a given integer.
